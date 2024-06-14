@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'post_provider.dart';
+import 'common.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -30,7 +29,7 @@ class MyHomePage extends ConsumerWidget {
         title: Consumer(
           builder: (context, ref, child) {
             final counter = ref.watch(counterProvider);
-            return Text('Post Viewer: $counter');
+            return Text('Post Viewer: $counter',style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.amber),);
           },
         ),
       ),
@@ -61,6 +60,7 @@ class MyHomePage extends ConsumerWidget {
   }
 
   void updateCount(WidgetRef ref) {
+    logger.d('updateCount');
     ref.read(counterProvider.notifier).state++;
     final _ = ref.refresh(postProvider);
   }
