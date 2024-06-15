@@ -1,27 +1,13 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'api_client.dart';
+import 'package:flutter_architecture/service/service_dio.dart';
+import '../api_client.dart';
+import '../../common.dart';
 import 'post.dart';
 
+const baseUrl = "https://jsonplaceholder.typicode.com";
+
 final dioProvider = Provider<Dio>((ref) {
-  return initDio();
+  return serviceDio(baseUrl);
 });
-
-Dio initDio() {
-  final dio = Dio(BaseOptions(baseUrl: "https://jsonplaceholder.typicode.com"));
-
-  final logger = PrettyDioLogger(
-    requestHeader: true,
-    requestBody: true,
-    responseBody: true,
-    responseHeader: false,
-    compact: false,
-  );
-
-  dio.interceptors.add(logger);
-  return dio;
-}
 
 final apiClientProvider = Provider<ApiClient>((ref) {
   final dio = ref.read(dioProvider);

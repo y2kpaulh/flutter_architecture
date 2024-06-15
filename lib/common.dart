@@ -2,6 +2,7 @@ import 'common.dart';
 
 export 'package:flutter/material.dart';
 export 'package:flutter_riverpod/flutter_riverpod.dart';
+export 'package:dio/dio.dart';
 export 'package:logger/logger.dart';
 
 var logger = Logger(

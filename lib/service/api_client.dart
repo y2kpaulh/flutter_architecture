@@ -1,6 +1,6 @@
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
-import 'post.dart';
+import 'post/post.dart';
 
 part 'api_client.g.dart';
 

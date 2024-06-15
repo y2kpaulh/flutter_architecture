@@ -1,5 +1,5 @@
-import 'post_provider.dart';
-import 'common.dart';
+import '../service/post/post_provider.dart';
+import '../common.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
